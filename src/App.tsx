@@ -1,9 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import appAxios from './axios';
 import LoginPage from './pages/LoginPage';
 
 import ProductsPage from './pages/ProductsPage';
-import { useAppSelector } from './store/store';
+import { login, logout } from './store/slices/auth.slice';
+import { useAppDispatch, useAppSelector } from './store/store';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,21 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const checkAuth = async () => {
+    try {
+      await appAxios.get('/auth/check');
+      dispatch(login());
+    } catch (error) {
+      dispatch(logout());
+    }
+  };
+
+  React.useEffect(() => {
+    checkAuth();
+  });
+
   const isAuth = useAppSelector((state) => state.auth.isAuth);
 
   if (!isAuth) return <LoginPage />;
