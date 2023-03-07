@@ -1,0 +1,37 @@
+@import '../../scss/app/vars';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.5rem;
+  background: $primary;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: $white;
+  font-size: 1rem;
+  justify-content: center;
+  &.primary {
+    background: $primary;
+    &:disabled {
+      background: lighten($primary, 20%);
+    }
+  }
+  &.danger {
+    background: $danger;
+    &:disabled {
+      background: lighten($danger, 20%);
+    }
+  }
+  &.gray {
+    background: $gray;
+    &:disabled {
+      background: lighten($gray, 20%);
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
