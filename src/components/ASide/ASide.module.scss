@@ -1,0 +1,41 @@
+@import '../../scss/app/vars';
+
+.aside {
+  width: 320px;
+  flex-shrink: 0;
+  height: 100%;
+  box-shadow: $shadow-light;
+  background: $white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.asideTitle {
+  text-align: center;
+}
+.asideList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.navigationItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: $black;
+  font-size: 1.125rem;
+  width: 100%;
+  border-radius: 0.25rem;
+
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $primary;
+  }
+  &:global.active {
+    color: $primary;
+  }
+}
