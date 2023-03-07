@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import appAxios from './axios';
+import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
 
 import ProductsPage from './pages/ProductsPage';
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = React.useState<boolean>(true);
 
   const checkAuth = async () => {
     try {
@@ -27,6 +29,8 @@ const App: React.FC = () => {
       dispatch(login());
     } catch (error) {
       dispatch(logout());
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -35,6 +39,8 @@ const App: React.FC = () => {
   });
 
   const isAuth = useAppSelector((state) => state.auth.isAuth);
+
+  if (loading) return <LoadingPage />;
 
   if (!isAuth) return <LoginPage />;
 
