@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({
   register,
   validationSchema,
 }) => {
-  if (register && !name) throw 'Enter a name for input!';
+  if (register && !name) throw new Error('Enter a name for input!');
   if (register)
     return (
       <div className={style.inputWrapper}>
