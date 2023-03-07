@@ -1,0 +1,42 @@
+@import '../../scss/app/vars';
+
+.inputWrapper {
+  position: relative;
+  color: $black;
+  svg {
+    position: absolute;
+    left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 9.5px;
+  }
+}
+.input {
+  min-width: none;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: inherit;
+  outline: none;
+  border-bottom: 1px solid $black;
+
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+.inputWithIcon {
+  padding-left: 2.5rem;
+}
+.errorContainer {
+  color: $danger;
+  padding: 0 0.5rem;
+}
+.error {
+  border-color: $danger;
+  &:focus {
+    border-color: $danger;
+  }
+}
