@@ -1,0 +1,28 @@
+@import '../../scss/app/vars';
+
+.wrapper {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.form {
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-light;
+  width: 100%;
+  max-width: 425px;
+  gap: 1rem;
+  h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+.formButton {
+  margin-top: 1rem;
+  min-width: 10rem;
+  align-self: center;
+}
