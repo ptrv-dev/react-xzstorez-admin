@@ -5,6 +5,7 @@ import style from './Button.module.scss';
 
 interface ButtonProps {
   children: string;
+  type?: 'button' | 'submit' | 'reset';
   icon?: React.ReactElement;
   loading?: boolean;
   color?: 'primary' | 'danger' | 'gray';
@@ -14,6 +15,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  type,
   icon,
   loading = false,
   color = 'primary',
@@ -36,6 +38,7 @@ const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
+      type={type}
       className={`${style.button} ${colorClassName} ${
         className ? className : ''
       }`}
