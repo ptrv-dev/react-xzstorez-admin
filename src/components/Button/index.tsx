@@ -9,6 +9,7 @@ interface ButtonProps {
   loading?: boolean;
   color?: 'primary' | 'danger' | 'gray';
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   color = 'primary',
   className,
+  onClick,
 }) => {
   let colorClassName = '';
   switch (color) {
@@ -38,6 +40,7 @@ const Button: React.FC<ButtonProps> = ({
         className ? className : ''
       }`}
       disabled={loading}
+      onClick={onClick}
     >
       {loading ? <LoadingIcon /> : icon}
       {children}
