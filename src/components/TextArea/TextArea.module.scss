@@ -1,0 +1,38 @@
+@import '../../scss/app/vars';
+
+.textareaWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  color: $black;
+}
+.textarea {
+  min-width: none;
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: inherit;
+  outline: none;
+  border-bottom: 1px solid $black;
+
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  resize: vertical;
+  min-height: 2.75rem;
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+.errorContainer {
+  color: $danger;
+  padding: 0 0.5rem;
+}
+.error {
+  border-color: $danger;
+  &:focus {
+    border-color: $danger;
+  }
+}
