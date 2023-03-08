@@ -6,6 +6,7 @@ import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductCreatePage from './pages/ProductCreatePage';
+import ProductEditPage from './pages/ProductEditPage';
 
 import ASide from './components/ASide';
 
@@ -46,6 +47,7 @@ const App: React.FC = () => {
         <Routes>
           <Route index element={<ProductsPage />} />
           <Route path="/product-create" element={<ProductCreatePage />} />
+          <Route path="/product/:id" element={<ProductEditPage />} />
         </Routes>
       </div>
     </main>
