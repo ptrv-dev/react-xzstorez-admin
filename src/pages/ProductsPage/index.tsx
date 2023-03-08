@@ -41,6 +41,8 @@ const ProductsPage: React.FC = () => {
     fetchProduct();
   }, [searchQuery, fetchProduct]);
 
+  const handleProductClick = (id: string) => navigate(`/product/${id}`);
+
   return (
     <div className="section">
       <div className="section-header">
@@ -79,7 +81,10 @@ const ProductsPage: React.FC = () => {
         <tbody>
           {products.length ? (
             products.map((product) => (
-              <tr key={product._id}>
+              <tr
+                key={product._id}
+                onClick={() => handleProductClick(product._id)}
+              >
                 <td>{product._id}</td>
                 <td>{product.title}</td>
                 <td>{product.description || '—'}</td>
