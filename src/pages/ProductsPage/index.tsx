@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import appAxios from '../../axios';
 
 import FolderPlusIcon from '../../components/Icons/FolderPlusIcon';
@@ -10,6 +11,7 @@ import Input from '../../components/Input';
 import { debounce } from '../../utils/debounce';
 
 const ProductsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = React.useState<string>('');
   const [searchQuery, setSearchQuery] = React.useState<string>(search);
   const [products, setProducts] = React.useState<any[]>([]);
@@ -37,7 +39,13 @@ const ProductsPage: React.FC = () => {
     <div className="section">
       <div className="section-header">
         <h2>Products</h2>
-        <Button icon={<FolderPlusIcon />} className="section-header__button">
+        <Button
+          icon={<FolderPlusIcon />}
+          className="section-header__button"
+          onClick={() => {
+            navigate('/product-create');
+          }}
+        >
           Create product
         </Button>
         <Input
