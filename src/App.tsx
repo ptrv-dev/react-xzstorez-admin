@@ -1,15 +1,18 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import appAxios from './axios';
+
 import LoadingPage from './pages/LoadingPage';
 import LoginPage from './pages/LoginPage';
-
 import ProductsPage from './pages/ProductsPage';
+import ProductCreatePage from './pages/ProductCreatePage';
+
+import ASide from './components/ASide';
+
 import { login, logout } from './store/slices/auth.slice';
 import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
-import ASide from './components/ASide';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -42,6 +45,7 @@ const App: React.FC = () => {
       <div className={style.body}>
         <Routes>
           <Route index element={<ProductsPage />} />
+          <Route path="/product-create" element={<ProductCreatePage />} />
         </Routes>
       </div>
     </main>
