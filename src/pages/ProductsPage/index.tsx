@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import appAxios from '../../axios';
 
 import FolderPlusIcon from '../../components/Icons/FolderPlusIcon';
@@ -10,16 +11,21 @@ import Input from '../../components/Input';
 
 import { debounce } from '../../utils/debounce';
 
+import { ProductItem, ProductResponse } from '../../@types/serverResponse';
+
 const ProductsPage: React.FC = () => {
   const navigate = useNavigate();
+
   const [search, setSearch] = React.useState<string>('');
   const [searchQuery, setSearchQuery] = React.useState<string>(search);
-  const [products, setProducts] = React.useState<any[]>([]);
+  const [products, setProducts] = React.useState<ProductItem[]>([]);
 
   const fetchProduct = React.useCallback(async () => {
     try {
-      const { data } = await appAxios(`/product?q=${searchQuery}`);
-      setProducts(data);
+      const { data } = await appAxios.get<ProductResponse>(
+        `/product?q=${searchQuery}`
+      );
+      setProducts(data.data);
     } catch (error) {
       console.log(error);
       alert('Something going wrong...');
@@ -77,7 +83,9 @@ const ProductsPage: React.FC = () => {
                 <td>{product._id}</td>
                 <td>{product.title}</td>
                 <td>{product.description || '—'}</td>
-                <td>{product.sizes.length ? product.sizes : '—'}</td>
+                <td>
+                  {product.sizes?.length ? product.sizes.join(', ') : '—'}
+                </td>
                 <td>{product.category ? product.category.title : '—'}</td>
                 <td>{product.brand ? product.brand.title : '—'}</td>
                 <td>{Number(product.price.$numberDecimal).toFixed(2)}</td>
