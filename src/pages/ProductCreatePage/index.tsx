@@ -106,8 +106,8 @@ const ProductCreatePage: React.FC = () => {
         images: imagesUrl,
         title: data.title,
         description: data.description,
-        category: data.category || undefined,
-        brand: data.brand || undefined,
+        category: data.category === '0' ? undefined : data.category,
+        brand: data.brand === '0' ? undefined : data.brand,
         sizes: sizes || [],
         price: data.price,
       };
@@ -204,7 +204,7 @@ const ProductCreatePage: React.FC = () => {
                           ref={provided.innerRef}
                         >
                           <FormImage
-                            file={file}
+                            href={file}
                             onRemove={() => {
                               handleRemoveImage(idx);
                             }}
