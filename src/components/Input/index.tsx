@@ -11,7 +11,8 @@ interface InputProps {
   error?: boolean | string;
   name?: string;
   register?: UseFormRegister<any>;
-  validationSchema?: any;
+  validationSchema?: {};
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -23,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   error,
   register,
   validationSchema,
+  onChange,
 }) => {
   if (register && !name) throw new Error('Enter a name for input!');
   if (register)
@@ -55,6 +57,7 @@ const Input: React.FC<InputProps> = ({
         className={`${style.input} ${icon ? style.inputWithIcon : ''} ${
           error ? style.error : ''
         }`}
+        onChange={onChange}
       />
       {error && typeof error === 'string' && (
         <p className={style.errorContainer}>{error}</p>
