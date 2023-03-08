@@ -1,0 +1,33 @@
+@import '../../scss/app/vars';
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+  svg {
+    position: absolute;
+    left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 9.5px;
+  }
+}
+.select {
+  min-width: none;
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: inherit;
+  outline: none;
+  border-bottom: 1px solid $black;
+
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+.selectWithIcon {
+  padding-left: 2.5rem;
+}
