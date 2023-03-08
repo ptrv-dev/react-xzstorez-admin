@@ -6,8 +6,7 @@ import TrashIcon from '../Icons/TrashIcon';
 import style from './FormImage.module.scss';
 
 interface FormImageProps {
-  href?: string;
-  file?: File;
+  href?: string | File;
   button?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   refs?: React.Ref<any>;
@@ -16,19 +15,20 @@ interface FormImageProps {
 
 const FormImage: React.FC<FormImageProps> = ({
   href,
-  file,
   button,
   onClick,
   refs,
   onRemove,
 }) => {
   const reader = new FileReader();
-  const [src, setSrc] = React.useState<string | ArrayBuffer>(href || '');
+  const [src, setSrc] = React.useState<string | ArrayBuffer>(
+    typeof href === 'string' ? href : ''
+  );
 
   reader.onload = (e) => {
     if (e.target && e.target.result) setSrc(e.target?.result);
   };
-  if (file) reader.readAsDataURL(file);
+  if (href && typeof href !== 'string') reader.readAsDataURL(href);
 
   if (button) {
     return (
