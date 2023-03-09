@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductCreatePage from './pages/ProductCreatePage';
 import ProductEditPage from './pages/ProductEditPage';
+import CategoriesPage from './pages/CategoriesPage';
 
 import ASide from './components/ASide';
 
@@ -48,6 +49,7 @@ const App: React.FC = () => {
           <Route index element={<ProductsPage />} />
           <Route path="/product-create" element={<ProductCreatePage />} />
           <Route path="/product/:id" element={<ProductEditPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
         </Routes>
       </div>
     </main>
