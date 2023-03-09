@@ -19,6 +19,7 @@ import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
 import BrandCreatePage from './pages/BrandCreatePage';
+import BrandEditPage from './pages/BrandEditPage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -58,6 +59,7 @@ const App: React.FC = () => {
           <Route path="/category/:id" element={<CategoryEditPage />} />
           <Route path="/brands" element={<BrandsPage />} />
           <Route path="/brand-create" element={<BrandCreatePage />} />
+          <Route path="/brand/:id" element={<BrandEditPage />} />
         </Routes>
       </div>
     </main>
