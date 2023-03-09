@@ -1,10 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import appAxios from '../../axios';
 
-import { CategoryItem, CategoryResponse } from '../../@types/serverResponse';
+import Button from '../../components/Button';
+import FolderPlusIcon from '../../components/Icons/FolderPlusIcon';
+
 import LoadingPage from '../LoadingPage';
 
+import { CategoryItem, CategoryResponse } from '../../@types/serverResponse';
+
 const CategoriesPage: React.FC = () => {
+  const navigate = useNavigate();
   const [categories, setCategories] = React.useState<CategoryItem[]>([]);
 
   const fetchCategories = async () => {
@@ -27,6 +33,14 @@ const CategoriesPage: React.FC = () => {
     <div className="section">
       <div className="section-header">
         <h3>Categories</h3>
+        <Button
+          icon={<FolderPlusIcon />}
+          onClick={() => {
+            navigate('/category-create');
+          }}
+        >
+          Create category
+        </Button>
       </div>
       <table className="table">
         <thead>
@@ -35,7 +49,12 @@ const CategoriesPage: React.FC = () => {
         </thead>
         <tbody>
           {categories.map((category) => (
-            <tr key={category._id}>
+            <tr
+              onClick={() => {
+                navigate(`/category/${category._id}`);
+              }}
+              key={category._id}
+            >
               <td>{category._id}</td>
               <td>{category.title}</td>
             </tr>
