@@ -15,6 +15,7 @@ import { login, logout } from './store/slices/auth.slice';
 import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
+import CategoryCreatePage from './pages/CategoryCreatePage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -50,6 +51,7 @@ const App: React.FC = () => {
           <Route path="/product-create" element={<ProductCreatePage />} />
           <Route path="/product/:id" element={<ProductEditPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/category-create" element={<CategoryCreatePage />} />
         </Routes>
       </div>
     </main>
