@@ -8,6 +8,9 @@ import ProductsPage from './pages/ProductsPage';
 import ProductCreatePage from './pages/ProductCreatePage';
 import ProductEditPage from './pages/ProductEditPage';
 import CategoriesPage from './pages/CategoriesPage';
+import CategoryCreatePage from './pages/CategoryCreatePage';
+import CategoryEditPage from './pages/CategoryEditPage';
+import BrandsPage from './pages/BrandsPage';
 
 import ASide from './components/ASide';
 
@@ -15,8 +18,6 @@ import { login, logout } from './store/slices/auth.slice';
 import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
-import CategoryCreatePage from './pages/CategoryCreatePage';
-import CategoryEditPage from './pages/CategoryEditPage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -54,6 +55,7 @@ const App: React.FC = () => {
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/category-create" element={<CategoryCreatePage />} />
           <Route path="/category/:id" element={<CategoryEditPage />} />
+          <Route path="/brands" element={<BrandsPage />} />
         </Routes>
       </div>
     </main>
