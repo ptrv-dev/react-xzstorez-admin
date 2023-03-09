@@ -199,6 +199,8 @@ const ProductEditPage: React.FC = () => {
     }
   };
 
+  const handleCancel = () => navigate('/');
+
   const handleProductRemove = async () => {
     try {
       if (window.confirm('Do you really want to delete a product?')) {
@@ -432,7 +434,7 @@ const ProductEditPage: React.FC = () => {
           >
             Delete
           </Button>
-          <Button type="button" color="gray">
+          <Button type="button" color="gray" onClick={handleCancel}>
             Cancel
           </Button>
         </div>
