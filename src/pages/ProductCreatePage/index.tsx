@@ -246,9 +246,7 @@ const ProductCreatePage: React.FC = () => {
             name="description"
             register={register}
             validationSchema={{
-              required: { value: true, message: 'Required' },
-              minLength: { value: 3, message: 'Min length 3' },
-              maxLength: { value: 256, message: 'Max length 256' },
+              maxLength: { value: 4096, message: 'Max length 4096' },
             }}
             error={errors.description?.message || Boolean(errors.description)}
           ></TextArea>
