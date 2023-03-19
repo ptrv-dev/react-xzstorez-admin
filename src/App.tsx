@@ -11,6 +11,9 @@ import CategoriesPage from './pages/CategoriesPage';
 import CategoryCreatePage from './pages/CategoryCreatePage';
 import CategoryEditPage from './pages/CategoryEditPage';
 import BrandsPage from './pages/BrandsPage';
+import BrandCreatePage from './pages/BrandCreatePage';
+import BrandEditPage from './pages/BrandEditPage';
+import CouponsPage from './pages/CouponsPage';
 
 import ASide from './components/ASide';
 
@@ -18,8 +21,6 @@ import { login, logout } from './store/slices/auth.slice';
 import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
-import BrandCreatePage from './pages/BrandCreatePage';
-import BrandEditPage from './pages/BrandEditPage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -60,6 +61,7 @@ const App: React.FC = () => {
           <Route path="/brands" element={<BrandsPage />} />
           <Route path="/brand-create" element={<BrandCreatePage />} />
           <Route path="/brand/:id" element={<BrandEditPage />} />
+          <Route path="/coupons" element={<CouponsPage />} />
         </Routes>
       </div>
     </main>

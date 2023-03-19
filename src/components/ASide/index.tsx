@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import FolderIcon from '../Icons/FolderIcon';
 import GridIcon from '../Icons/GridIcon';
 import SettingsIcon from '../Icons/SettingsIcon';
-import ShoppingBagIcon from '../Icons/ShoppingBagIcon';
+import TagIcon from '../Icons/TagIcon';
 import BriefCaseIcon from '../Icons/BriefCaseIcon';
 
 import style from './ASide.module.scss';
@@ -47,9 +47,9 @@ const navigation = [
     href: '/brands',
   },
   {
-    icon: <ShoppingBagIcon />,
-    title: 'Orders',
-    href: '/orders',
+    icon: <TagIcon />,
+    title: 'Coupons',
+    href: '/coupons',
   },
   {
     icon: <SettingsIcon />,
