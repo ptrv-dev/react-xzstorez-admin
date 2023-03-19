@@ -44,6 +44,7 @@ const CouponsPage: React.FC = () => {
           <th>Name</th>
           <th>Coupon</th>
           <th style={{ width: '5rem' }}>Percent</th>
+          <th style={{ width: '5rem' }}>Uses</th>
         </thead>
         <tbody>
           {coupons.map((coupon) => (
@@ -55,6 +56,7 @@ const CouponsPage: React.FC = () => {
               <td>{coupon.name}</td>
               <td>{coupon.coupon}</td>
               <td>{coupon.percent.$numberDecimal}</td>
+              <td>{coupon.uses}</td>
             </tr>
           ))}
         </tbody>
