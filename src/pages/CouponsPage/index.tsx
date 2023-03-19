@@ -47,7 +47,10 @@ const CouponsPage: React.FC = () => {
         </thead>
         <tbody>
           {coupons.map((coupon) => (
-            <tr key={coupon._id}>
+            <tr
+              key={coupon._id}
+              onClick={() => navigate(`/coupon/${coupon._id}`)}
+            >
               <td>{coupon._id}</td>
               <td>{coupon.name}</td>
               <td>{coupon.coupon}</td>

@@ -22,6 +22,7 @@ import { login, logout } from './store/slices/auth.slice';
 import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
+import CouponEditPage from './pages/CouponEditPage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -64,6 +65,7 @@ const App: React.FC = () => {
           <Route path="/brand/:id" element={<BrandEditPage />} />
           <Route path="/coupons" element={<CouponsPage />} />
           <Route path="/coupons/create" element={<CouponCreatePage />} />
+          <Route path="/coupon/:id" element={<CouponEditPage />} />
         </Routes>
       </div>
     </main>
