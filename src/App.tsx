@@ -14,6 +14,7 @@ import BrandsPage from './pages/BrandsPage';
 import BrandCreatePage from './pages/BrandCreatePage';
 import BrandEditPage from './pages/BrandEditPage';
 import CouponsPage from './pages/CouponsPage';
+import CouponCreatePage from './pages/CouponCreatePage';
 
 import ASide from './components/ASide';
 
@@ -62,6 +63,7 @@ const App: React.FC = () => {
           <Route path="/brand-create" element={<BrandCreatePage />} />
           <Route path="/brand/:id" element={<BrandEditPage />} />
           <Route path="/coupons" element={<CouponsPage />} />
+          <Route path="/coupons/create" element={<CouponCreatePage />} />
         </Routes>
       </div>
     </main>
