@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import appAxios from '../../axios';
 import Button from '../../components/Button';
 import FolderPlusIcon from '../../components/Icons/FolderPlusIcon';
+import TagIcon from '../../components/Icons/TagIcon';
 import Input from '../../components/Input';
 
 interface FormFields {
@@ -12,15 +13,33 @@ interface FormFields {
   percent: string;
 }
 
+function generateCoupon(length: number) {
+  let result = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
+
 const CouponCreatePage: React.FC = () => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormFields>();
 
   const [loading, setLoading] = React.useState<boolean>(false);
+
+  const handleGenerate = () => {
+    setValue('coupon', generateCoupon(6).toUpperCase());
+  };
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setLoading(true);
@@ -86,9 +105,21 @@ const CouponCreatePage: React.FC = () => {
             error={errors.percent?.message || Boolean(errors.percent)}
           />
         </div>
-        <Button type="submit" loading={loading} icon={<FolderPlusIcon />}>
-          Create
-        </Button>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '1rem',
+          }}
+        >
+          <Button type="submit" loading={loading} icon={<FolderPlusIcon />}>
+            Create
+          </Button>
+          <Button type="button" icon={<TagIcon />} onClick={handleGenerate}>
+            Generate coupon
+          </Button>
+        </div>
       </form>
     </div>
   );
