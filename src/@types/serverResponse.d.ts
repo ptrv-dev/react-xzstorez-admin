@@ -58,3 +58,9 @@ export interface CouponItem {
 export interface CouponsResponse {
   data: CouponItem[];
 }
+
+export interface ISettingsResponse {
+  _id: string;
+  cryptoDiscount: Float;
+  __v: number;
+}

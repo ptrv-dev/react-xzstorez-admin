@@ -23,6 +23,7 @@ import { useAppDispatch, useAppSelector } from './store/store';
 
 import style from './scss/App.module.scss';
 import CouponEditPage from './pages/CouponEditPage';
+import SettingsPage from './pages/SettingsPage';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -66,6 +67,7 @@ const App: React.FC = () => {
           <Route path="/coupons" element={<CouponsPage />} />
           <Route path="/coupons/create" element={<CouponCreatePage />} />
           <Route path="/coupon/:id" element={<CouponEditPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </div>
     </main>
