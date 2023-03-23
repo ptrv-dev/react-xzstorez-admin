@@ -105,7 +105,7 @@ const ProductCreatePage: React.FC = () => {
       const product = {
         images: imagesUrl,
         title: data.title,
-        description: data.description,
+        description: !!data.description ? data.description : undefined,
         category: data.category === '0' ? undefined : data.category,
         brand: data.brand === '0' ? undefined : data.brand,
         sizes: sizes || [],
